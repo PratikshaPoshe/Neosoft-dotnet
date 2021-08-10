@@ -38,17 +38,26 @@ namespace Assignment
             Console.WriteLine("\nUsing CompareTo() :\n");
             int val1 = 10;
             int val2 = 10;
-            Console.WriteLine($"\tValue 1 = {val1}");
-            Console.WriteLine($"\tValue 1 = {val2}");
-            Console.WriteLine($"\tReturn value (comparison) = {val1.CompareTo(val2)}");
+            int val3 = 11;
+            int val4 = 13;
+            Console.WriteLine($"Value 1 = {val1}");
+            Console.WriteLine($"Value 2 = {val2}");
+            Console.WriteLine($"Value 3 = {val3}");
+            Console.WriteLine($"Value 4 = {val4}");
+
+            Console.WriteLine("\t" + (CompareValue(val1, val2)));
+            Console.WriteLine("\t" + (CompareValue(val1, val3)));
+            Console.WriteLine("\t" + (CompareValue(val4, val3)));
+
 
             string strFirst = "Firststring";
-            string strSecond = "secondstring";
+            string strSecond = "Secondstring";
             string strThird = "thirdstring";
             string strFourth = "fourthstring";
 
             // Compare a string to itself.
             Console.WriteLine("\t" + (CompareStrings(strFirst, strFirst)));
+
             Console.WriteLine("\t" + (CompareStrings(strFirst, strSecond)));
             Console.WriteLine("\t" + (CompareStrings(strFirst, strThird)));
 
@@ -56,20 +65,34 @@ namespace Assignment
             Console.WriteLine("\t" + (CompareStrings(strFirst, strFourth)));
             Console.WriteLine("\t" + (CompareStrings(strFourth, strFirst)));
 
-             static string CompareStrings(string str1, string str2)
-            {
-                // Compare the values, using the CompareTo method on the first string.
-                int cmpVal = str1.CompareTo(str2);
-
-                if (cmpVal == 0) // The strings are the same.
-                    return "The strings occur in the same position in the sort order.";
-                else if (cmpVal < 0)
-                    return "The first string precedes the second in the sort order.";
-                else
-                    return "The first string follows the second in the sort order.";
-            }
-
         }
+
+        static string CompareStrings(string str1, string str2)
+        {
+            // Compare the values, using the CompareTo method on the first string.
+            int cmpVal = str1.CompareTo(str2);
+
+            if (cmpVal == 0) // The strings are the same.
+                return "The strings occur in the same position in the sort order.";
+            else if (cmpVal < 0)
+                return "The first string precedes the second in the sort order.";
+            else
+                return "The first string follows the second in the sort order.";
+        }
+
+        static string CompareValue(int val1, int val2)
+        {
+            // Compare the values, using the CompareTo method on integer value
+            int objVal = val1.CompareTo(val2);
+
+            if (objVal == 0) // The values are same.
+                return ($" {val1} and {val2}");
+            else if (objVal < 0)
+                return ($" {val1} is less than {val2}");
+            else
+                return ($" {val1} is greater than {val2}");
+        }
+        
     }
 }
 
