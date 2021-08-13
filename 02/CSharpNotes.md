@@ -114,6 +114,41 @@ string alphabet = new string(letters);
   - That is, the method receives not the object itself but an argument that indicates the location of the object.
   - If you change a member of the object by using this reference, the change is reflected in the argument in the calling method, even if you pass the object by value.
 
+## [Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)
+- Smart fields in C# which are used to expose a private variable outsid the class
+- You can use conditionals with your properties.
+- properties can be created in 3 ways:
+  - read-only - with only get block.
+  - write-only - with only set block.
+  - read-write property - with both get and set block.
+- [Method Hiding](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/new-modifier)
+
+## [Params Keword](https://www.geeksforgeeks.org/c-sharp-params/)
+## Abstraction
+- [Abstract Classes and sealed](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members)
+- [Interface](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
+- [Abstract class vs Interface](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
+
+## [Non - Access Modifiers](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
+- static 
+  -  usually used with methods and classes. A static methid need not to be called via instance or obj, it can be called directly by the class name itself. -  Static classes contains only members, they cannot be instantiated instead use single point of entrance which is class itself. Static classes cannot be inherited which mean static classes are sealed by default.
+- sealed 
+  - usually used with methods and classes. 
+  - Sealed class are closed for extension which means it cannot be inherited. 
+  - Sealed classes can be instantiated.
+  - Sealed methods are closed for overriding.
+- partial 
+  - usually used with classes and methods.
+  - They are used to segrated the logical implememtation in components and on compile it is a single unit.
+  - Ex You can create a partial class for design and the other component of that prtial class to handle the logic but when you compile it is compiled as a single class.
+  - Same way you can logically separate the method implementation as handling inputs, validating inputs and performing operations on those inputs.
+- abstract
+- virtual
+- new
+- override
+- this
+- base
+- async and await.....
 ## References
 - [Learn C# in interactive way](https://docs.microsoft.com/en-us/users/dotnet/collections/yz26f8y64n7k07)
 - [Learn C# from video](https://channel9.msdn.com/Series/CSharp-Fundamentals-for-Absolute-Beginners)
