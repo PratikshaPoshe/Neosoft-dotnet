@@ -128,6 +128,22 @@ string alphabet = new string(letters);
 - [Abstract Classes and sealed](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members)
 - [Interface](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
 - [Abstract class vs Interface](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
+- ## [Abstract class](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members) vs [Interface](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
+- An interface defines a contract. Any class or struct that implements that contract must provide an implementation of the members defined in the interface. 
+- Abstract class allows you to implement a spectrum of abstraction like full abstraction, partial abstraction etc....
+- Abstract class allows you to have all types of members. Like you can have data variables and assign values to it and can create methods with definition.
+- Abstract class and interface cannot be instantiated but meant to be implemented/inherited.
+- Abstract/Concrete class can implement one or more interfaces by which multiple inheritance is achieved. But class can only inherit from 1 class.
+- A class can inherit 1 class and one or more interfaces.
+```
+class A{ }
+
+Class B : A,IA,IB
+{ }
+
+interface IA{}
+
+interface IB
 
 ## [Non - Access Modifiers](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
 - static 

@@ -7,6 +7,7 @@
 		- TFS, VSTS, SVN
 - ![Version control system board work](https://github.com/Tech-Training-2021/Neosoft-dotnet/blob/main/01/Images/1VCS%20.png)
 # Git
+## VCS -- DVCS and CVCS
 ## Basic Git and commands
 - `cd 'path'` -> change directory
 - `cd ..` -> moves a level up

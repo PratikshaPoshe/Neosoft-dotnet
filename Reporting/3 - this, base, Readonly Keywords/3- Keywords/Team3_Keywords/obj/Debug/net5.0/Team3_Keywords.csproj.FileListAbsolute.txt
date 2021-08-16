@@ -1,0 +1,15 @@
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\bin\Debug\net5.0\Team3_Keywords.exe
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\bin\Debug\net5.0\Team3_Keywords.deps.json
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\bin\Debug\net5.0\Team3_Keywords.runtimeconfig.json
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\bin\Debug\net5.0\Team3_Keywords.runtimeconfig.dev.json
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\bin\Debug\net5.0\Team3_Keywords.dll
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\bin\Debug\net5.0\ref\Team3_Keywords.dll
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\bin\Debug\net5.0\Team3_Keywords.pdb
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\obj\Debug\net5.0\Team3_Keywords.GeneratedMSBuildEditorConfig.editorconfig
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\obj\Debug\net5.0\Team3_Keywords.AssemblyInfoInputs.cache
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\obj\Debug\net5.0\Team3_Keywords.AssemblyInfo.cs
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\obj\Debug\net5.0\Team3_Keywords.csproj.CoreCompileInputs.cache
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\obj\Debug\net5.0\Team3_Keywords.dll
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\obj\Debug\net5.0\ref\Team3_Keywords.dll
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\obj\Debug\net5.0\Team3_Keywords.pdb
+C:\Neosoft\Presentation\Team3_Keywords\Team3_Keywords\obj\Debug\net5.0\Team3_Keywords.genruntimeconfig.cache
