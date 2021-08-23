@@ -1,32 +1,44 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using PetLib;
+using System.IO;
 
 namespace PetStore
 {
     class Program
     {
         static void Main(string[] args) // entry point
-        {
+        { 
             //GetCat();
             PetData.FileRepo repo = new PetData.FileRepo();
             /*var newCat=AddCat();
             repo.Add(Mapper.Map(newCat));*/
-
-            /*var cats = repo.GetAllCats();
+            HealthStatus catHealth=new HealthStatus();
+            try{
+            var cats = repo.GetAllCats();
             foreach (var cat in cats)
             {
-                Console.WriteLine($"{cat.Id} {cat.Name} {cat.CatType} {cat.Dob} {cat.Weight} pounds {cat.Gender}");
-            }*/
+                var fbmi=catHealth.Fbmi(cat.RibCage, cat.LegLength);
+                Console.WriteLine($"Id - {cat.Id} , Name- {cat.Name} \n |Breed- {cat.CatType} , Birthday- {cat.Dob.ToShortDateString()} \n |Weight- {cat.Weight} pounds , Gender- {cat.Gender} \n |Cat's Health- {catHealth.CatHealth(fbmi)}");
+                Console.WriteLine("------------------------------------------------------");
+            }
+            }
+            catch(DirectoryNotFoundException ex){
+                Console.WriteLine("Invalid Directory");
+            }
+            catch(FileNotFoundException){
+                Console.WriteLine("Invalid File");
+            }
+           
            /*Console.WriteLine("Please enter the name of the cat to be searched for ");
             var name=Console.ReadLine();
             var cat=repo.GetCat(name);
             Console.WriteLine($"{cat.Id} {cat.Name} {cat.CatType} {cat.Dob} {cat.Weight} pounds {cat.Gender}");*/
             
             //SERIALIZATION
-            var cats=repo.Init();
+            //var cats=repo.Init();
             //repo.AddDummyCats(cats);//into XML
-            repo.AddDummyCats_Json(cats);//into JSON
+            //repo.AddDummyCats_Json(cats);//into JSON
 
 
         }

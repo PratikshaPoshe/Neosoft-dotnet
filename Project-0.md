@@ -70,12 +70,12 @@
 
 |# | Team Representative  | Team Members         | Store type       |
 |--|----------------------|----------------------|------------------|
-|1.|Shivam Gupta          |                      |                  |
-|2.|Harsh Chheda          |                      |                  |
-|3.|Prachi Gaikwad        |                      |                  |
-|4.|Himani Jain           |                      |                  |
-|5.|Aman Sharma           |                      |                  |
-|6.|Samuel Joy            |                      |                  |
-|7.|Alfaiz Khan           |                      |                  |
-|8.|Maaria Khan           |                      |                  |
-|9.|Akshay Pawar          |                      |                  |
+|1.|Shivam Gupta          |Saad Mansuri, Sana Haju, Pratiksha Poshe|Grocery Shop|
+|2.|Harsh Chheda          |Kunal Patil, Hrushikesh Shinde, Yogesh Chaudhari|Book Store  |
+|3.|Prachi Gaikwad        |Mayuri Kumbhar, Krunal Rane, Pranali Deore, Jaideep Sahu|Cake Store |
+|4.|Himani Jain           |Emran, Vivek, Nikita|Shoes Store|
+|5.|Aman Sharma           |Mitali Jain, Ramya Guduru, Sushma | Pizza Store|
+|6.|Samuel Joy            |Raj Bhosale,Lucky Pareekh,Kajal|Mobile Store|
+|7.|Alfaiz Khan           | Anshul, Nomaan Pansare,Saif Khan| Book Store |
+|8.|Maaria Khan           |Shivani Yogi, Shruti, Nivrutti|Beauty Products Store|
+|9.|Akshay Pawar          |Shivani Goswami,Imam, Vishram, Romila|Aquarium Fish Store|

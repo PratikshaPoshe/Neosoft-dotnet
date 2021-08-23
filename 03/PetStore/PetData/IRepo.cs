@@ -6,7 +6,7 @@ namespace PetData
         //IEnumerable<Cat> Init();
         void Add(Cat cat);
         // void Delete(int cat);
-        IEnumerable<Cat> GetAllCats();
+        IEnumerable<Cat> GetAllCats(string path= @"Cats.xml");
         Cat GetCat(int id);
         // Cat GetCat(string name);
     }

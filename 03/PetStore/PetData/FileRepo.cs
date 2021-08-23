@@ -3,27 +3,41 @@ using System.Linq;
 using System.IO;
 using System.Xml.Serialization;
 using System.Text.Json;
+using System;
 namespace PetData
 {
     public class FileRepo:IRepo
     {
         static List<Cat> cats=null;
-        static string path= @".\Cats.xml";
+        static string path= @"..\Cats.xml";
         public List<Cat> Init(){
                 cats=new List<Cat>(){
-                    new Cat(){Id=100, CatType=CatType.Abyssian, Dob=new System.DateTime(2013,12,13),Gender=Gender.Female,Name="Kitty", Weight=7.5},
-                    new Cat(){Id=101, CatType=CatType.Balinese_Javanese, Dob=new System.DateTime(2016,02,23),Gender=Gender.Male,Name="Billy", Weight=8.5},
-                    new Cat(){Id=102, CatType=CatType.Bengal, Dob=new System.DateTime(2021,12,13),Gender=Gender.Female,Name="Snow", Weight=4.5}
+                    new Cat(){Id=100, CatType=CatType.Abyssian, Dob=new System.DateTime(2013,12,13),Gender=Gender.Female,Name="Kitty", Weight=7.5, LegLength=2, RibCage=14},
+                    new Cat(){Id=101, CatType=CatType.Balinese_Javanese, Dob=new System.DateTime(2016,02,23),Gender=Gender.Male,Name="Billy", Weight=8.5,LegLength=2.2, RibCage=15},
+                    new Cat(){Id=102, CatType=CatType.Bengal, Dob=new System.DateTime(2021,12,13),Gender=Gender.Female,Name="Snow", Weight=4.5,LegLength=1.8, RibCage=14}
                 };
            return cats;
         }
         public void AddDummyCats(List<Cat> cats){
-                StreamWriter writer=new StreamWriter(path);
+            StreamWriter writer=null;
+            try{
+                writer = new StreamWriter(path);
                 XmlSerializer serializer =new XmlSerializer(typeof(List<Cat>));
-                serializer.Serialize(writer,cats);
-                
+                serializer.Serialize(writer,cats); 
+            }
+            catch(DirectoryNotFoundException ex){
+                System.Console.WriteLine(ex.Message);
+            }
+            catch(FileNotFoundException ex){
+                System.Console.WriteLine(ex.Message);
+            }
+            catch(Exception ex){
+                System.Console.WriteLine(ex.Message);
+            }                
+            finally{              
                 writer.Close();
-                System.Console.WriteLine("All cats has bee stored in the XML file at {0}",path);
+            }
+            System.Console.WriteLine("All cats has bee stored in the XML file at {0}",path);
         }
 
         public void AddDummyCats_Json(IEnumerable<Cat> cats,string _path = @".\Cats.json"){
@@ -55,16 +69,32 @@ namespace PetData
             System.Console.WriteLine("Cat has been added");
         }
 
-        public IEnumerable<Cat> GetAllCats(){
-            using(StreamReader reader=new StreamReader(path)){
-            XmlSerializer deserializer=new XmlSerializer(typeof(List<Cat>));
-            var cats=(List<Cat>)deserializer.Deserialize(reader);
-            }
-            if(cats.Count>0)
-                return cats;
-            else
-                return null;
-        }
+    public IEnumerable<Cat> GetAllCats(string _path= @"..\Cats.xml"){
+            XmlSerializer deserializer=null;
+            List<Cat> cats=null;
+            try{
+                using StreamReader reader=new StreamReader(_path);
+                deserializer=new XmlSerializer(typeof(List<Cat>));
+                cats=(List<Cat>)deserializer.Deserialize(reader);
+               }
+                catch(DirectoryNotFoundException ex){
+                    System.Console.WriteLine("Invalid path to the file");
+                }
+                catch(FileNotFoundException ex){
+                    System.Console.WriteLine("Invalid path to the file");
+                }
+                catch(Exception ex){
+                    Console.WriteLine("Exception");
+                }  
+                if(cats!=null){
+                    if(cats.Count>0)
+                        return cats;
+                }
+                else
+                    throw new System.NullReferenceException();
+                    return null;
+   }
+      
         public Cat GetCat(int id){
             var cats= GetAllCats();
             var cat=cats.Where<Cat>(x=>x.Id==id).FirstOrDefault();

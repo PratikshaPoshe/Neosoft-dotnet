@@ -7,6 +7,8 @@
     <Dob>2013-12-13T00:00:00</Dob>
     <CatType>Abyssian</CatType>
     <Weight>7.5</Weight>
+    <RibCage>14</RibCage>
+    <LegLength>2</LegLength>
   </Cat>
   <Cat>
     <Id>101</Id>
@@ -15,6 +17,8 @@
     <Dob>2016-02-23T00:00:00</Dob>
     <CatType>Balinese_Javanese</CatType>
     <Weight>8.5</Weight>
+    <RibCage>15</RibCage>
+    <LegLength>2.2</LegLength>
   </Cat>
   <Cat>
     <Id>102</Id>
@@ -23,5 +27,7 @@
     <Dob>2021-12-13T00:00:00</Dob>
     <CatType>Bengal</CatType>
     <Weight>4.5</Weight>
+    <RibCage>14</RibCage>
+    <LegLength>1.8</LegLength>
   </Cat>
 </ArrayOfCat>
