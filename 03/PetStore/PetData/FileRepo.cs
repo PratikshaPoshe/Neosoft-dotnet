@@ -4,6 +4,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Text.Json;
 using System;
+using System.Threading.Tasks;
 namespace PetData
 {
     public class FileRepo:IRepo
@@ -40,14 +41,19 @@ namespace PetData
             System.Console.WriteLine("All cats has bee stored in the XML file at {0}",path);
         }
 
-        public void AddDummyCats_Json(IEnumerable<Cat> cats,string _path = @".\Cats.json"){
+        public async void AddDummyCats_Json(IEnumerable<Cat> cats,string _path = @".\Cats.json"){
            using(FileStream stream =File.Create(_path)){
-           var json=JsonSerializer.Serialize(cats);
-           stream.Close();
-           File.WriteAllText(_path,json);
-           stream.Close();
-           }
-           System.Console.WriteLine("Cats are added to {0} \n",_path);
+               try{
+                    await JsonSerializer.SerializeAsync(stream, cats);
+               }
+               catch(DriveNotFoundException ex){
+                   Console.WriteLine(ex.Message);
+               }           
+               catch(FileNotFoundException ex){
+                   Console.WriteLine(ex.Message);
+               }
+               System.Console.WriteLine("Cats are added to {0} \n",_path);
+           }           
         }
         public Stack<Cat> Init_Stack(){
             Stack<Cat> cats=new Stack<Cat>();
@@ -75,7 +81,7 @@ namespace PetData
             try{
                 using StreamReader reader=new StreamReader(_path);
                 deserializer=new XmlSerializer(typeof(List<Cat>));
-                cats=(List<Cat>)deserializer.Deserialize(reader);
+                var result = (List<Cat>)deserializer.Deserialize(reader);
                }
                 catch(DirectoryNotFoundException ex){
                     System.Console.WriteLine("Invalid path to the file");

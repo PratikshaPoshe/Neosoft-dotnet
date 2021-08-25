@@ -32,7 +32,7 @@ namespace PetStore
            
            /*Console.WriteLine("Please enter the name of the cat to be searched for ");
             var name=Console.ReadLine();
-            var cat=repo.GetCat(name);
+            var cat=repo.GetCat(name).Result;
             Console.WriteLine($"{cat.Id} {cat.Name} {cat.CatType} {cat.Dob} {cat.Weight} pounds {cat.Gender}");*/
             
             //SERIALIZATION
