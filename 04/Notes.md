@@ -60,3 +60,17 @@
   - Each row, also called a **tuple**, includes data about a specific instance of the entity in question, such as a particular employee.
   - The model also accounts for the types of relationships between those tables, including one-to-one, one-to-many, and many-to-many relationships.
   - Within the database, tables can be normalized, or brought to comply with normalization rules that make the database flexible, adaptable, and scalable. When normalized, each piece of data is atomic, or broken into the smallest useful pieces.
+
+## Constraints:
+1. Primary Key: Key attribute which uniquely distinguish between different records/tuples. Unique, not null.
+2. Foreign Key: used for referencing. Map entities type or tabe into a relationship.
+3. Not Null
+4. Unique key
+5. Default
+6. Check 
+
+## Types of Sql Queries
+1. DDL - create, alter, drop, truncate
+2. DML - insert, update, delete
+3. DQL - select, filteration
+4. DCL - grant, revoke

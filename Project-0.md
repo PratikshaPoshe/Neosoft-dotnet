@@ -73,7 +73,7 @@
 |1.|Shivam Gupta          |Saad Mansuri, Sana Haju, Pratiksha Poshe|Grocery Shop|
 |2.|Harsh Chheda          |Kunal Patil, Hrushikesh Shinde, Yogesh Chaudhari|Book Store  |
 |3.|Prachi Gaikwad        |Mayuri Kumbhar, Krunal Rane, Pranali Deore, Jaideep Sahu|Cake Store |
-|4.|Himani Jain           |Emran, Vivek, Nikita|Shoes Store|
+|4.|Himani Jain           |Emran, Vivek, Nikita, Anagha|Shoes Store|
 |5.|Aman Sharma           |Mitali Jain, Ramya Guduru, Sushma | Pizza Store|
 |6.|Samuel Joy            |Raj Bhosale,Lucky Pareekh,Kajal|Mobile Store|
 |7.|Alfaiz Khan           | Anshul, Nomaan Pansare,Saif Khan| Book Store |
