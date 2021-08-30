@@ -74,3 +74,18 @@
 2. DML - insert, update, delete
 3. DQL - select, filteration
 4. DCL - grant, revoke
+
+## [Sql Datatypes](https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15)
+- Numerics
+  - Exact numerics - numeric, bit, smallint, tinyint, int, bigint, decimal, smallmoney, money
+  - Approximate - float, real
+- Character/Text 
+  - character strings - char, varchar, text
+  - Unicode character strings - nchar, nvarchar, ntext
+  - Large value data types: varchar(max), and nvarchar(max)
+  - Large object data types: text, ntext, image, varbinary(max), and xml
+- Binary - binary, image, varbinary
+- Date/Time - date, datetime, datetime2, smalldatetime, time
+
+## References
+- [ER Model](https://www.geeksforgeeks.org/introduction-of-er-model/)
