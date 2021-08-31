@@ -1,0 +1,13 @@
+Connected with SP
+GetCatById  - Team Maaria
+DeleteCatById - Team Akshay
+DeleteCatByName - Team Alfaiz
+AddCat - Team Samuel
+
+
+Disconnected with SP and dataset
+GetCatById  - Team Shivam
+AddCat  - Team Harsh
+UpdateCat - Team Prachi
+DeleteCatById  - Team Himani
+DeleteCatByName - Team Aman
