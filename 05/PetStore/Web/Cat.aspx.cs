@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Web
 {
@@ -11,43 +9,103 @@ namespace Web
     {        
         protected void Page_Load(object sender, EventArgs e)
         {
-            dd_CatType.DataSource = Enum.GetNames(typeof(CatType));
-            dd_CatType.DataBind();
-            dd_FurType.DataSource = Enum.GetNames(typeof(FurType));
-            dd_FurType.DataBind();
-            //Load_dd_CatType();
-            //Load_dd_FurType();
-        }
-
-        private void Load_dd_CatType()
-        {
-            foreach (var ct in Enum.GetValues(typeof(CatType)))
+            if (!this.IsPostBack)
             {
-                ListItem item = new ListItem(Enum.GetName(typeof(CatType), ct), ct.ToString());
-                dd_CatType.Items.Add(item);
+                string Constring = ConfigurationManager.ConnectionStrings["PetDbConnectionString"].ConnectionString;
+                LoadBindGridView(Constring);
+                Load_dd_CatType(Constring);
+                Load_dd_FurType(Constring);
             }
         }
-        private void Load_dd_FurType()
+
+        private void LoadBindGridView(string constring)
         {
-            foreach (var ct in Enum.GetValues(typeof(FurType)))
+            string catQuery = "select id, Name,Dob, GenderId, catType, FurType from Cats";
+            using (SqlConnection cons = new SqlConnection(constring))
             {
-                ListItem item = new ListItem(Enum.GetName(typeof(FurType), ct), ct.ToString());
-                dd_FurType.Items.Add(item);
+                using (SqlDataAdapter ads = new SqlDataAdapter(catQuery, constring))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        ads.Fill(dt);
+                        gv_cats.DataSource = dt;
+                        gv_cats.DataBind();
+                    }
+                }
+            }
+        }
+
+        private void Load_dd_CatType(string Constring)
+        {
+            string query = "select * from catType";
+            using(SqlConnection cons = new SqlConnection(Constring))
+            {
+                using(SqlDataAdapter ads = new SqlDataAdapter(query, Constring))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        ads.Fill(dt);
+                        dd_CatType.DataSource = dt;
+                        dd_CatType.DataBind();
+                        dd_CatType.DataTextField = "Name";
+                        dd_CatType.DataValueField = "Id";
+                        dd_CatType.DataBind();
+                    }
+                }
+            }
+        }
+        private void Load_dd_FurType(string Constring)
+        {
+            string query = "select * from FurType";
+            using (SqlConnection cons = new SqlConnection(Constring))
+            {
+                using (SqlDataAdapter ads = new SqlDataAdapter(query, Constring))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        ads.Fill(dt);
+                        dd_FurType.DataSource = dt;
+                        dd_FurType.DataBind();
+                        dd_FurType.DataTextField = "Name";
+                        dd_FurType.DataValueField = "Id";
+                        dd_FurType.DataBind();
+                    }
+                }
             }
         }
         protected void btn_Add_Click(object sender, EventArgs e)
         {
-            lbl_Display.Text = $"Name - {tb_Name.Text} <br>Date of Birth - {tb_Dob.Text}";
+            string name = tb_Name.Text;
+            string dob = tb_Dob.Text;
+            int genderId;
             if (rb_Male.Checked)
             {
-                lbl_Display.Text += $"<br>Gender - {rb_Male.Text}";
+                genderId = 1;
             }
             else
             {
-                lbl_Display.Text += $"<br>Gender - {rb_Female.Text}";
+                genderId = 2;
             }
-            lbl_Display.Text += $"<br>Cat Type - {dd_CatType.SelectedValue} <br>Fur Type - {dd_FurType.SelectedValue}";
-
+            string catType = dd_CatType.SelectedValue;
+            string furType = dd_FurType.SelectedValue;
+            string ConString = ConfigurationManager.ConnectionStrings["PetDbConnectionString"].ConnectionString;
+            string insertQuery = "INSERT INTO Cats(Name, Dob, GenderId,CatType,FurType) Values(@Name,@Dob,@GenderId,@CatType,@FurType)";
+            using(SqlConnection connection = new SqlConnection(ConString))
+            {
+                using(SqlCommand cmd = new SqlCommand(insertQuery))
+                {
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Dob", dob);
+                    cmd.Parameters.AddWithValue("@GenderId", genderId);
+                    cmd.Parameters.AddWithValue("@CatType", catType);
+                    cmd.Parameters.AddWithValue("@FurType", furType);
+                    cmd.Connection = connection;
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            LoadBindGridView(ConString);
         }
         
     }

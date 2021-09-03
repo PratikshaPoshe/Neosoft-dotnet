@@ -42,6 +42,8 @@
             <div class="col-sm-10 offset-sm-2">
                 <asp:Button ID="btn_Add" class="btn btn-primary" runat="server" Text="Add" OnClick="btn_Add_Click" />
             </div>
+              <asp:GridView ID="gv_cats" runat="server" BackColor="WhiteSmoke"> </asp:GridView>
+              
           </div>
             <asp:Label ID="lbl_Display" runat="server" Text=""></asp:Label>
     </form>
