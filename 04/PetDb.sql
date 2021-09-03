@@ -4,25 +4,25 @@ this
 is multiline comment
 */
 --use PetDb;--does not work with Azure sql Db
-drop table CatType;
+--drop table CatType;
 create table catType(
 	Id int identity(1,1) primary key,
 	Name varchar(100) not null
 )
 
-drop table FurType;
+--drop table FurType;
 create table FurType(
 	Id int identity(1,1) primary key,
 	Name varchar(100) not null
 );
 
-drop table Gender
+--drop table Gender
 create table Gender(
 	Id int primary key default 1,
 	Name varchar(10) not null
 );
 
-drop table Cats
+--drop table Cats
 create table Cats(
 	Id int identity(1,1) primary key,
 	Name varchar(100) not null,
@@ -57,13 +57,13 @@ select * from cats
 select * from Gender
 select * from Cattype
 
-drop table FoodType;
+--drop table FoodType;
 create table FoodType(
 	Id int primary key identity,
 	Type varchar(100)
 );
 
-drop table meals
+--drop table meals
 create table Meals(
 	Id int Primary key identity(1,1),
 	FoodType int Foreign key references FoodType(Id) not null,
@@ -77,3 +77,19 @@ insert into foodtype values ('Wet');
 insert into meals(foodtype,time, catid) values(1, sysdatetime(), 1)
 select * from foodtype
 select * from meals
+select * from cats
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+Create procedure SP_Deletecat  (     @catId int  )  as   begin     Delete from Cats where Id=@catId  End
