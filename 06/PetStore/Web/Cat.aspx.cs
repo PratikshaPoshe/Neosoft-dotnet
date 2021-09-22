@@ -10,11 +10,16 @@ namespace Web
     {        
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+           
             if (!this.IsPostBack)
             {
                 string Constring = ConfigurationManager.ConnectionStrings["PetDbConnectionString"].ConnectionString;
-                Load_dd_CatType(Constring);
-                Load_dd_FurType(Constring);
+                //Load_dd_CatType(Constring);
+                //Load_dd_FurType(Constring);
             }
         }
 
@@ -91,7 +96,7 @@ namespace Web
             string name = tb_Name.Text;
             string dob = tb_Dob.Text;
             int genderId;
-            if (rb_Male.Checked)
+            if (rbl_Gender.SelectedIndex==1)
             {
                 genderId = 1;
             }
